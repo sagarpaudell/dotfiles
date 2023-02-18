@@ -1,0 +1,54 @@
+#! /bin/sh
+
+# START APPS
+pgrep -x sxhkd > /dev/null || sxhkd &
+#compton --backend glx --vsync opengl-swc & 
+nitrogen --restore &
+$HOME/.config/polybar/launch.sh & dunst &
+#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+#notify-send 'Dunst' 'Notifications activated'
+#numlockx &
+#picom --experimental-backend &
+#notify-send "BSPWM" "started"
+
+# workspaces (deleted X)
+bspc monitor -d I II III IV V VI VII VIII IX
+bspc config border_width         1
+bspc config window_gap           0
+
+# COLORS
+# #F7768E
+# #9ECE6A
+# #7DCFFF
+# #E0AF68
+# #7AA2F7
+# #222633
+
+bspc config active_border_color     "#9ECE6A"
+bspc config focused_border_color    "#7AA2F7"
+bspc config normal_border_color     "#585858"
+
+bspc config split_ratio             0.52
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+
+bspc rule -a Tilix          state=floating center=on
+bspc rule -a KeePassXC      state=floating center=on
+bspc rule -a Lxappearance   state=floating center=on
+bspc rule -a Gcolor3        state=floating center=on
+bspc rule -a Pavucontrol    state=floating center=on
+bspc rule -a Baobab         state=floating center=on 
+bspc rule -a Galculator     state=floating center=on 
+bspc rule -a Grsync         state=floating center=on 
+bspc rule -a Orage          state=floating center=on rectangle=400x200+2760+1040
+
+bspc rule -a Brave-browser  desktop='^2' follow=on
+bspc rule -a VSCodium       desktop='^3' follow=on
+bspc rule -a obsidian       desktop='^7' follow=on
+bspc rule -a Gimp-2.10      desktop='^8'
+bspc rule -a Rhythmbox      desktop='^9'
+
+# rectangle=700x500+2760+1040
+
+
+
